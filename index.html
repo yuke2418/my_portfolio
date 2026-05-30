@@ -14,8 +14,7 @@
         
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #ffffff;
-            /* 背景にお気に入りの風景画像を設定（※URLはサンプルです） */
+            color: #000000; /* 基本の文字色を「黒」に */
             background: url('image0 - コピー.jpg') no-repeat center center fixed;
             background-size: cover;
         }
@@ -27,42 +26,72 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            position: relative; /* 矢印の位置基準用 */
         }
 
-        /* 薄く四角で区切ったキリッとしたボックス */
-        .profile-box {
-            background-color: rgba(0, 0, 0, 0.6); /* 黒の半透明（白っぽくするなら rgba(255,255,255,0.2) など） */
-            padding: 40px 60px;
-            border: 2px solid #ffffff; /* 白い直線でキリッとさせる */
-            border-radius: 0px; /* 角を丸めず、キリッと尖らせる */
-            backdrop-filter: blur(5px); /* 背景の風景を少しぼかして文字を読みやすくする */
+        /* フチなし・黒字オンリー・極太・斜めの名前タイトル */
+        .name-title {
+            font-size: 8rem;               /* パソコンでの超特大サイズ */
+            font-family: 'Times New Roman', Times, serif; /* 洗練された大人のセリフ体フォント */
+            font-weight: 900;              /* 極太 */
+            color: #000000;                /* 黒字オンリー */
+            transform: rotate(-10deg);     /* ⚡斜めに傾ける */
+            letter-spacing: -0.05em;       /* 文字の間隔をギュッと詰めてスタイリッシュに */
+            line-height: 1;
+            margin-bottom: 20px;
+            user-select: none;
+
+            text-shadow: 
+                1px  1px 0 #fff, -1px  1px 0 #fff,
+                1px -1px 0 #fff, -1px -1px 0 #fff,
+                0px  1px 0 #fff,  0px -1px 0 #fff,
+                1px  0px 0 #fff, -1px  0px 0 #fff;
         }
 
-        .profile-box h1 {
-            font-size: 2.5rem;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
+        /* サブテキスト（のんびり生活したい） */
+        .sub-text {
+            font-size: 1.2rem;
+            color: #000000;
+            transform: rotate(-10deg);     /* ⚡斜めに傾ける */
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 10px;
+
+            text-shadow: 
+                1px  1px 0 #fff, -1px  1px 0 #fff,
+                1px -1px 0 #fff, -1px -1px 0 #fff,
+                0px  1px 0 #fff,  0px -1px 0 #fff,
+                1px  0px 0 #fff, -1px  0px 0 #fff;
         }
 
+        /* ふわふわ動く矢印（これもフチなし黒字に） */
         .scroll-arrow {
-            margin-top: 30px;
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 0.9rem;
+            color: #000000;
+            font-weight: bold;
             animation: bounce 2s infinite;
         }
 
-        /* 下にスクロールした先のセクション */
+        /* 下にスクロールした先のセクション（フチなし・背景透明に） */
         .menu-section {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.4); /* スクロール先を少し暗くして落ち着かせる */
+            background-color: rgba(255, 255, 255, 0.2); /* 背景を完全に消さず、文字が見やすいようほんのり白を乗せる */
         }
 
         .menu-section h2 {
             margin-bottom: 40px;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            color: #000000;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2rem;
         }
 
         /* ほかのページに飛ぶ選択肢（ナビゲーション） */
@@ -76,40 +105,51 @@
             width: 200px;
             padding: 20px;
             text-align: center;
-            color: #ffffff;
+            color: #000000; /* 文字を黒に */
             text-decoration: none;
-            border: 1px solid #ffffff;
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease; /* マウスを乗せた時の変化をなめらかに */
+            border: 1px solid #000000; /* フチ線を黒に */
+            background-color: rgba(0, 0, 0, 0.05);
+            font-weight: bold;
+            transition: all 0.3s ease; 
         }
 
         /* マウスを乗せた（ホバーした）ときのアクション */
         .menu-item:hover {
-            background-color: #ffffff;
-            color: #000000;
-            transform: translateY(-5px); /* ひょこっと上に動く */
+            background-color: #000000; /* 反転して黒背景に */
+            color: #ffffff;            /* 文字を白に */
+            transform: translateY(-5px); 
         }
 
-        /* 矢印を上下にふわふわ動かすアニメーション（CSSだけ） */
+        /* 矢印を上下にふわふわ動かすアニメーション */
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
         }
-        /* 画面の横幅が 768px 以下（スマホ・タブレット）のときだけ適用 */
+
+        /* 📱 画面の横幅が 768px 以下（スマホ）のときだけ適用 */
         @media (max-width: 768px) {
             body {
-                /* スマホで見栄えが良い「縦長」の風景画像のURLに差し替える */
                 background-image: url('image0.jpg');
-
                 background-repeat: no-repeat;
                 background-size: cover;
             }
             
-            /* ついでにスマホだと四角いボックスが大きすぎる場合、少し小さく調整 */
-            .profile-box {
-                padding: 20px 30px; 
-                width: 90%; /* 画面の横幅いっぱいに広がらないようにする */
+            /* スマホだと文字がはみ出るので、スマホ専用の大きさに自動調整 */
+            .name-title {
+                font-size: 4.5rem; /* スマホ画面に綺麗に収まる絶妙なデカさ */
+                transform: rotate(-15deg); /* スマホは少し強めに傾けると映えます */
+            }
+
+            /* スマホのメニューの並び順を縦並びにする */
+            .menu-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu-item {
+                width: 260px; /* スマホで押しやすい横幅 */
+                padding: 15px;
             }
         }
     </style>
@@ -117,19 +157,21 @@
 <body>
 
     <section class="hero-section">
-        <div class="profile-box">
-            <h1>ゆけペーーーージ‼</h1>
-            <p>のんびり生活したい‼</p>
-            <div class="scroll-arrow">▼ Scroll Down</div>
+        <div>
+            <h1 class="name-title">YUKE</h1>
+            <p class="sub-text">YUKE'S PAGE / ゆけペーーーージ!!</p>
+            <p class="sub-text">のんびり生活したい!!</p>
         </div>
+        <div class="scroll-arrow">▼ Scroll Down</div>
     </section>
 
     <section class="menu-section">
         <h2>CONTENTS</h2>
         <div class="menu-container">
-            <a href="about.html" class="menu-item">ABOUT ME</a>
-            <a href="works.html" class="menu-item">WORKS</a>
-            <a href="blog.html" class="menu-item">BLOG</a>
+            <a href="#home" class="menu-item">HOME</a>
+            <a href="#works" class="menu-item">WORKS</a>
+            <a href="#blog" class="menu-item">BLOG</a>
+            <a href="#contact" class="menu-item">CONTACT</a>
         </div>
     </section>
 
