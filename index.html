@@ -4,12 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* 全体の設定 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* ⚡ 右上のSNSアイコンエリア */
+        .sns-container {
+            position: fixed;         /* ➔ スクロールしても右上にずっと固定 */
+            top: 20px;               /* ➔ 上からの隙間 */
+            right: 20px;             /* ➔ 右からの隙間 */
+            display: flex;
+            gap: 15px;               /* ➔ アイコン同士の間隔 */
+            z-index: 100;          /* ➔ 背景画像よりも前に表示するお守り */
+        }
+
+        .sns-icon {
+            font-size: 1.8rem;       /* ➔ アイコンの大きさ */
+            color: #000000;          /* ➔ 黒字オンリー */
+            text-decoration: none;
+            
+            /* 前につけた名前と同じ、綺麗な白フチをここにも適用 */
+            text-shadow: 
+                1px  1px 0 #fff, -1px  1px 0 #fff,
+                1px -1px 0 #fff, -1px -1px 0 #fff,
+                0px  1px 0 #fff,  0px -1px 0 #fff,
+                1px  0px 0 #fff, -1px  0px 0 #fff;
+            
+            transition: transform 0.2s ease;
+        }
+
+        /* アイコンを触ったときにちょっと大きくする */
+        .sns-icon:hover {
+            transform: scale(1.1);
         }
         
         body {
@@ -74,6 +105,12 @@
             color: #000000;
             font-weight: bold;
             animation: bounce 2s infinite;
+
+            text-shadow: 
+                1px  1px 0 #fff, -1px  1px 0 #fff,
+                1px -1px 0 #fff, -1px -1px 0 #fff,
+                0px  1px 0 #fff,  0px -1px 0 #fff,
+                1px  0px 0 #fff, -1px  0px 0 #fff;
         }
 
         /* 下にスクロールした先のセクション（フチなし・背景透明に） */
@@ -134,9 +171,11 @@
                 background-repeat: no-repeat;
                 background-size: cover;
 
-                background-size: contain;     /* ➔ 画像を絶対に切らずに全体を表示 */
-                background-position: top center; /* ➔ 画像を画面の上のほうに合わせる */
-                background-color: #ffffff;
+                background-position: center bottom;
+
+                /*background-size: contain;      ➔ 画像を絶対に切らずに全体を表示 */
+                /*background-position: top center;  ➔ 画像を画面の上のほうに合わせる */
+                /*background-color: #ffffff;*/
             }
             
             /* スマホだと文字がはみ出るので、スマホ専用の大きさに自動調整 */
@@ -160,11 +199,20 @@
 </head>
 <body>
 
+    <div class="sns-container">
+        <a href="https://x.com/yuke_oecu" target="_blank" rel="noopener noreferrer" class="sns-icon">
+            <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="https://instagram.com/yusuke.u2006" target="_blank" rel="noopener noreferrer" class="sns-icon">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+    </div>
+
     <section class="hero-section">
         <div>
             <h1 class="name-title">YUKE</h1>
             <p class="sub-text">YUKE'S PAGE / ゆけペーーーージ!!</p>
-            <p class="sub-text">のんびり生活したい!!</p>
+            <p class="sub-text">なるべく楽に!!</p>
         </div>
         <div class="scroll-arrow">▼ Scroll Down</div>
     </section>
@@ -172,7 +220,6 @@
     <section class="menu-section">
         <h2>CONTENTS</h2>
         <div class="menu-container">
-            <a href="#home" class="menu-item">HOME</a>
             <a href="#works" class="menu-item">WORKS</a>
             <a href="#blog" class="menu-item">BLOG</a>
             <a href="#contact" class="menu-item">CONTACT</a>
