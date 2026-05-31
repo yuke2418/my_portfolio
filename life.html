@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生史 - YUKE CHRONICLES</title>
+    <style>
+        /* ⚡ 漆黒と黄金の歴史設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', "MS Mincho", serif;
+            background-color: #000000; /* 真っ黒背景 */
+            color: #d4af37; /* 基本の文字色は黄金色 */
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* ⚡ 背景に家紋を「バーン！」と配置 */
+        .background-kamon {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%; /* 画面いっぱいのデカさ */
+            opacity: 0.15; /* 邪魔にならない程度の薄さ */
+            z-index: -1;
+            /* 黒い家紋画像を黄金っぽく変色させる魔法のフィルター */
+            filter: invert(80%) sepia(50%) saturate(2000%) hue-rotate(10deg);
+        }
+
+        /* 戻るボタン（これも黄金スタイル） */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 8px 15px;
+            color: #d4af37;
+            text-decoration: none;
+            border: 1px solid #d4af37;
+            background: rgba(0, 0, 0, 0.8);
+            font-weight: bold;
+            z-index: 100;
+            transition: 0.3s;
+        }
+        .back-button:hover {
+            background-color: #d4af37;
+            color: #000;
+        }
+
+        /* タイトルエリア */
+        .header-area {
+            height: 60vh; /* 最初は家紋とタイトルをしっかり見せる */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-area h1 {
+            font-size: 4rem;
+            letter-spacing: 0.3em;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .header-area p {
+            font-size: 1.2rem;
+            letter-spacing: 0.5em;
+        }
+
+        /* 縦に流れる年表 */
+        .timeline-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        .timeline-container {
+            position: relative;
+            border-left: 2px solid #d4af37; /* 黄金の縦線 */
+            padding-left: 40px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+        }
+
+        /* 黄金の点 */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -51px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            border: 3px solid #d4af37;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #d4af37;
+        }
+
+        .timeline-date {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            background: rgba(212, 175, 55, 0.05); /* ほんのり黄金色の背景 */
+            padding: 30px;
+            border-top: 1px solid #d4af37;
+            border-right: 1px solid #d4af37;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .timeline-content p {
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+
+        /* スマホ用調整 */
+        @media (max-width: 768px) {
+            .header-area h1 { font-size: 2.5rem; }
+            .background-kamon { width: 120%; } /* スマホは家紋をもっとデカく */
+            .timeline-container { padding-left: 25px; }
+            .timeline-item::before { left: -36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <img src="90268.jpg" alt="家紋" class="background-kamon">
+
+    <a href="index.html" class="back-button">◀ 戻る</a>
+
+    <div class="header-area">
+        <p>YUKE CHRONICLES</p>
+        <h1>人生史</h1>
+    </div>
+    
+    <section class="timeline-section">
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-date">2006年3月22日 </div>
+                <div class="timeline-content">
+                    <h3>岡山県倉敷市にて誕生</h3>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2007年 〜</div>
+                <div class="timeline-content">
+                    <h3>幼児期</h3>
+                    <p>2010年 倉敷市立葦高幼稚園に入園</p>
+                    <p>2011年 初の習い事でピアノと合氣道を始める</p>
+                    <p>2010年 幼稚園卒園</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2012年4月 〜</div>
+                <div class="timeline-content">
+                    <h3>小学校時代</h3>
+                    <p>2012年 倉敷市立葦高小学校に入学</p>
+                    <p>2015年 ピアノを辞める</p>
+                    <p>2016年 硬筆、毛筆を習い始める</p>
+                    <p>2018年 小学校卒業</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2018年 4月 〜</div>
+                <div class="timeline-content">
+                    <h3>中学時代</h3>
+                    <p>2018年 倉敷市立新田中学校に入学</p>
+                    <p>2018年 バスケ部に入部</p>
+                    <p>2019年 硬筆、毛筆共に2段を取得</p>
+                    <p>2019年 バスケ部を退部、硬筆、毛筆を辞める</p>
+                    <p>2019年 新田太鼓部に入部</p>
+                    <p>2021年 中学卒業</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2021年 4月 〜</div>
+                <div class="timeline-content">
+                    <h3>高校時代</h3>
+                    <p>2021年 岡山県立水島工業高等学校に入学</p>
+                    <p>2021年 天文部に入部</p>
+                    <p>2021年 フォークリフト免許を取る</p>
+                    <p>2023年 天文部の部長になる</p>
+                    <p>2024年 天文部引退</p>
+                    <p>2024年 合氣道で壱級を取る</p>
+                    <p>2024年 高校卒業</p>
+                    <p>2024年 合氣道を休会する</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2024年 4月 〜</div>
+                <div class="timeline-content">
+                    <h3>大学時代</h3>
+                    <p>2024年 大阪電気通信大学に入学</p>
+                    <p>2024年 プログラミング研究会に入部</p>
+                    <p>2024年 プログラミング研究会の会計、SNS担当になる</p>
+                    <p>2024年 準中型自動車免許を取る</p>
+                    <p>2025年 プログラミング研究会の主務にもなる</p>
+                    <p>2025年 主務の任期が終わる</p>
+                    <p>2026年 情報セキュリティマネジメント試験に合格</p>
+                    <p>2026年 基本情報技術者試験に合格</p>
+                </div>
+            </div>
+
+
+            <div class="timeline-item">
+                <div class="timeline-date">2026年</div>
+                <div class="timeline-content">
+                    <h3>そして現在</h3>
+                    <p>「のんびり生活したい!!」</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
