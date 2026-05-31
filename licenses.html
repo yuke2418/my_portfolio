@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保有資格 - CERTIFICATES</title>
+    <style>
+        /* 全体の初期化 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+            background-color: #0d0d0d; /* ベースは静かな黒 */
+            color: #ffffff; /* 💡ベースを白文字にし、影の付け方を調整して圧倒的に読みやすくします */
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 80px 24px;
+            position: relative;
+        }
+
+        /* 💡 背景画像（amano.jpg）の設定 */
+        .background-kamon {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;          
+            max-width: 800px;    
+            opacity: 0.25;       /* 💡 0.6だとスマホで画像が強すぎて文字と被るため、少しだけ落として高級な「透かし」に調整しました */
+            z-index: -1;         
+            pointer-events: none;
+        }
+
+        /* 戻るボタン */
+        .back-button {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            font-size: 0.9rem;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+            z-index: 100;
+            /* 黒背景でも絶対に埋もれないように細い黒影を仕込みました */
+            text-shadow: 1px 1px 2px #000;
+        }
+        .back-button:hover {
+            opacity: 0.7;
+        }
+
+        /* タイトル */
+        .page-title {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.25em;
+            text-align: center;
+            margin-bottom: 80px;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+            /* 💡 輪郭がパキッと浮き出るシャドウ */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* 資格リストのコンテナ */
+        .license-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: relative;
+            z-index: 2; 
+        }
+
+        /* 各資格の項目 */
+        .license-item {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* 💡 線をほんのり透かすことで洗練された印象に */
+            padding-bottom: 18px;
+        }
+
+        /* 取得日 */
+        .license-date {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 0.9rem;
+            color: #aaaaaa; /* 💡 日付を少しグレーに落とすことで、資格名が引き立ちます */
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        /* 資格名 */
+        .license-name {
+            font-size: 1.15rem;
+            font-weight: bold; /* 💡 太さを出すことで、スマホの小さな画面でも一瞬で読めるように */
+            color: #ffffff;
+            letter-spacing: 0.05em;
+            text-shadow: 1px 1px 2px #000; /* 黒い影を後ろに落として文字をクッキリ浮かせます */
+        }
+
+        /* 📱 スマホ用調整 */
+        @media (max-width: 768px) {
+            body { padding: 80px 20px; }
+            .back-button { top: 25px; left: 20px; }
+            .page-title { margin-bottom: 50px; font-size: 1.8rem; }
+            
+            .background-kamon {
+                width: 140%; /* スマホは画像をあえて画面からはみ出るくらいデカくすると映えます！ */
+            }
+            .license-name {
+                font-size: 1.05rem; /* スマホで2行に折れ曲がりにくくするための微調整 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img src="amano.jpg" alt="背景" class="background-kamon">
+
+    <a href="index.html" class="back-button">← BACK</a>
+
+    <h1 class="page-title">CERTIFICATES</h1>
+    
+    <div class="license-container">
+
+        <div class="license-item">
+            <div class="license-date">2019</div>
+            <div class="license-name">硬筆・毛筆 二段</div>
+        </div>
+
+        <div class="license-item">
+            <div class="license-date">2021.08</div>
+            <div class="license-name">フォークリフト運転免許</div>
+        </div>
+
+        <div class="license-item">
+            <div class="license-date">2023.11</div>
+            <div class="license-name">合氣道 壱級</div>
+        </div>
+
+        <div class="license-item">
+            <div class="license-date">2024.09</div>
+            <div class="license-name">準中型自動車免許</div>
+        </div>
+
+        <div class="license-item">
+            <div class="license-date">2026.03</div>
+            <div class="license-name">情報セキュリティマネジメント試験</div>
+        </div>
+
+        <div class="license-item">
+            <div class="license-date">2026.04</div>
+            <div class="license-name">基本情報技術者試験</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
